@@ -5,12 +5,14 @@ import subprocess
 DATE_FLAG_DIR = 'date_flag'
 
 def _git_push(current_date):
-    add_command = ['git', 'add', '.']
-    commit_command = ['git', 'commit', '-m', 'update {} diary'.format(current_date)]
-    push_command = ['git', 'push']
-    subprocess.run(add_command + commit_command + push_command,
-                   shell=True,
-                   check=True)
+    add_command = 'git add .'
+    commit_command = 'git commit -m \'update {} diary\''.format(current_date)
+    push_command = 'git push'
+    for command in (add_command, commit_command, push_command):
+        subprocess.run(command,
+                       shell=True,
+                       check=True,
+                       stderr=subprocess.STDOUT)
 
 def _send_email():
     admin_email = os.environ['ADMIN_EMAIL']
@@ -29,4 +31,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-    _send_email()
+    _git_push('test2')
