@@ -43,3 +43,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+<<<<<<< HEAD
+=======
+    _git_push('test2')
+>>>>>>> 25ea46e42261a5364a2984ddf92edfb72df29d76
