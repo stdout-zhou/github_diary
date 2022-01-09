@@ -39,7 +39,7 @@ def main():
         _send_email()
         
     else:
-        print('exist')
+        print('{} has exist'.format(current_date))
 
 if __name__ == '__main__':
     main()
