@@ -35,9 +35,8 @@ def main():
     if not os.path.exists(current_date_file_path):
         with open(current_date_file_path, 'a'):
             os.utime(current_date_file_path, None)
-        _git_push()
-        _send_email()
-        
+        _git_push(current_date)
+        _send_email(current_date)
     else:
         print('{} has exist'.format(current_date))
 
