@@ -11,10 +11,13 @@ def _git_push(current_date):
     commit_command = 'git commit -m \'update {} diary\''.format(current_date)
     push_command = 'git push'
     for command in (add_command, commit_command, push_command):
-        subprocess.run(command,
-                       shell=True,
-                       check=True,
-                       stderr=subprocess.STDOUT)
+        try:
+            subprocess.run(command,
+                        shell=True,
+                        check=True,
+                        stderr=subprocess.STDOUT)
+        except:
+            pass
 
 def _send_email(current_date):
     admin_email = os.environ['ADMIN_EMAIL']
